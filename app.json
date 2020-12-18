@@ -1,0 +1,12 @@
+{
+  "name": "my_github",
+  "displayName": "my_github",
+  "expo": {
+    "name": "my_github",
+    "slug": "my_github",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
