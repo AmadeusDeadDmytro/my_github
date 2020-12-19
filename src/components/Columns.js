@@ -1,62 +1,61 @@
 import React from 'react'
 import styled from 'styled-components'
 import {ScrollView, Dimensions} from "react-native";
-import Column, {paddingHorizontal} from "./Column";
+import Column from "./Column";
 
-const margin = 2
+import {contentPadding} from "../themes/variables";
 
+const margin = 4
 
-const StyledView = styled(ScrollView)`
+const getWidth = ({ first, last } = {}) => {
+    const onlyOne = first && last;
+    const { width } = Dimensions.get('window');
+
+    if (onlyOne) return width;
+    if (first || last) return width - contentPadding - margin ;
+
+    return width - (2 * (contentPadding + margin));
+};
+
+const StyledScrollView = styled.ScrollView`
+  
+`;
+
+const StyledView = styled.View`
   flex: 1;
-`
+  width: ${getWidth};
+`;
 
 const StyledColumn = styled(Column)`
   flex: 1;
   margin: ${margin}px;
-  width: ${() => Dimensions.get('window').width - (2 * paddingHorizontal)};
-`
+  border-radius: 4px;
+`;
 
-export default class extends React.Component {
-    state = {
-        index: 0,
-        marginLeft: 0
-    }
 
-    render () {
-        return (
-            <ScrollView
-                contentInset={{left: paddingHorizontal}}
-                contentOffset={{x: paddingHorizontal}}
-                contentContainerStyle={{marginLeft: this.state.marginLeft}}
-                loop={false}
-                removeClippedSubviews={false}
-                horizontal
-                pagingEnabled
-                scrollEventThrottle={30}
-                onScroll = {({ nativeEvent: { contentOffset: {x} } }) => {
-                    const index = x > 0 ? x / 375 : 0
-
-                    const marginLeft = (
-                        (this.state.index * 2 * paddingHorizontal) -
-                        ((this.state.index - 1) * 2 * margin) +
-                        paddingHorizontal - 2 * margin
-                    )
-
-                    this.setState({ index, marginLeft })
-                }}
-                {...this.props}
-            >
-                <StyledColumn title={'React'}/>
-                <StyledColumn title={'Redux'}/>
-                <StyledColumn title={'GraphQL'}/>
-                <StyledColumn title={'Node.js'}/>
-                <StyledColumn title={'PHP'}/>
-                <StyledColumn title={'PHP'}/>
-                <StyledColumn title={'PHP'}/>
-                <StyledColumn title={'PHP'}/>
-                <StyledColumn title={'PHP'}/>
-                <StyledColumn title={'PHP'}/>
-            </ScrollView>
-        )
-    }
-}
+export default props => (
+    <StyledScrollView
+        width={getWidth()}
+        loop={false}
+        removeClippedSubviews={false}
+        horizontal
+        pagingEnabled
+        {...props}
+    >
+        <StyledView first>
+            <StyledColumn title={'React'}/>
+        </StyledView>
+        <StyledView>
+            <StyledColumn title={'Redux'}/>
+        </StyledView>
+        <StyledView>
+            <StyledColumn title={'GraphQL'}/>
+        </StyledView>
+        <StyledView>
+            <StyledColumn title={'Node.js'}/>
+        </StyledView>
+        <StyledView last>
+            <StyledColumn title={'PHP'}/>
+        </StyledView>
+    </StyledScrollView>
+)

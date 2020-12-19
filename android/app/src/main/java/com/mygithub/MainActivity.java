@@ -1,7 +1,7 @@
 package com.mygithub;
 
 import android.os.Bundle;
-
+import com.oblador.vectoricons.VectorIconsPackage;
 import com.facebook.react.ReactActivity;
 import com.facebook.react.ReactActivityDelegate;
 import com.facebook.react.ReactRootView;
