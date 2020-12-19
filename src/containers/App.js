@@ -5,15 +5,34 @@ import { connect } from 'react-redux';
 import { setTheme } from '../actions';
 import type { State } from '../utils/types';
 import {loadTheme} from "../utils/helpers";
+import Main from '../components/Main'
 
-const StyledView = styled.View`
+import {StatusBar, View} from 'react-native'
+
+const Root = styled.View`
   flex: 1;
-  background-color: ${({ theme }) => theme.base00};
-`;
+`
+
+const StatusBarContainer = styled(View)`
+  height: 22px;
+  background-color: ${({ theme }) => theme.base01};
+`
+
+const StyledMain = styled(Main)`
+  flex: 1;
+`
 
 const App = ({ theme, ...props }: State) => (
   <ThemeProvider theme={theme}>
-    <StyledView {...props} />
+      <Root>
+          <StatusBarContainer>
+              <StatusBar
+                backgroundColor={theme.base01}
+                barStyle={theme.isDark ? 'light-content' : 'dark-content'}
+              />
+          </StatusBarContainer>
+          <StyledMain {...props}/>
+      </Root>
   </ThemeProvider>
 );
 

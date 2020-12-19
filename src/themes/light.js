@@ -1,4 +1,6 @@
 export default {
+  theme: 'light',
+  isDark: false,
   base00: '#eeeeee', // фон страницы
   base01: '#d7d7d7', // фон карточки -1
   base02: '#cccccc', // фон карточки 0
