@@ -4,6 +4,7 @@ import styled, { ThemeProvider } from 'styled-components';
 import { connect } from 'react-redux';
 import { setTheme } from '../actions';
 import type { State } from '../utils/types';
+import {loadTheme} from "../utils/helpers";
 
 const StyledView = styled.View`
   flex: 1;
@@ -16,9 +17,9 @@ const App = ({ theme, ...props }: State) => (
   </ThemeProvider>
 );
 
-const mapStateToProps = ({ config, theme }: State) => ({
+const mapStateToProps = ({ config }: State) => ({
   config,
-  theme,
+  theme: loadTheme(config),
 });
 
 const mapDispatchToProps = {
