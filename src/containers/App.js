@@ -1,32 +1,28 @@
 import React from 'react';
-import styled, { ThemeProvider } from "styled-components";
+import styled, { ThemeProvider } from 'styled-components';
 
-import { DARK_THEME, LIGHT_THEME } from "../themes";
-import {connect} from "react-redux";
-import {setTheme} from "../actions";
-import {State} from '../utils/types'
+import { connect } from 'react-redux';
+import { setTheme } from '../actions';
+import type { State } from '../utils/types';
 
 const StyledView = styled.View`
   flex: 1;
-  background-color: ${({theme}) => theme.base00};
-`
+  background-color: ${({ theme }) => theme.base00};
+`;
 
-const App = ({ theme, ...props }) =>  {
-  return (
-      <ThemeProvider theme={theme}>
-        <StyledView {...props}/>
-      </ThemeProvider>
-  );
-}
+const App = ({ theme, ...props }: State) => (
+  <ThemeProvider theme={theme}>
+    <StyledView {...props} />
+  </ThemeProvider>
+);
 
-const mapStateToProps = ({config, theme}: State) => ({
+const mapStateToProps = ({ config, theme }: State) => ({
   config,
-  theme
-})
+  theme,
+});
 
 const mapDispatchToProps = {
-  setTheme
-}
+  setTheme,
+};
 
-export default connect(mapStateToProps, mapDispatchToProps)(App)
-
+export default connect(mapStateToProps, mapDispatchToProps)(App);
