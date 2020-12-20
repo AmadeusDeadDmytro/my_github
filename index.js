@@ -13,6 +13,7 @@ import {SafeAreaProvider} from "react-native-safe-area-context";
 import Octicons from "react-native-vector-icons/Octicons";
 import {DEFAULT_THEME} from "./src/utils/constants/defaults";
 import {loadTheme} from "./src/utils/helpers";
+import {Settings} from "./src/containers/Settings";
 
 const composeEnhancers = composeWithDevTools({ realtime: true })
 const store = createStore(reducer, composeEnhancers(autoRehydrate()))
@@ -43,12 +44,13 @@ const Core = () => (
 
                     })}
                     tabBarOptions={{
-                        activeTintColor: theme.base04,
-                        inactiveTintColor: theme.base03,
-                        inactiveBackgroundColor: theme.base04,
-                        activeBackgroundColor: theme.base03,
+                        activeTintColor: theme.base07,
+                        inactiveTintColor: theme.base05,
+                        inactiveBackgroundColor: theme.base07,
+                        activeBackgroundColor: theme.base05,
                         style: {
-                            backgroundColor: theme.base00
+                            backgroundColor: theme.base00,
+                            borderTopWidth: 0
                         }
                     }}
                 >

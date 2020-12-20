@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import {contentPadding} from "../themes/variables";
+import {contentPadding} from "../styles/variables";
 import Card from './Card'
 import Icon from 'react-native-vector-icons/Octicons'
 

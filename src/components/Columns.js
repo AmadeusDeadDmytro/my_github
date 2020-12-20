@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import {Dimensions} from "react-native";
 import Column from "./Column";
 
-import {contentPadding} from "../themes/variables";
+import {contentPadding} from "../styles/variables";
 
 const margin = 2
 

@@ -49,12 +49,12 @@ const App = ({ setTheme, theme }: Props) => {
 };
 
 const mapStateToProps = ({ config }: State) => ({
-  config,
-  theme: loadTheme(config),
+    config,
+    theme: loadTheme(config),
 });
 
 const mapDispatchToProps = {
-  setTheme,
+    setTheme,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
