@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import {ScrollView, Dimensions} from "react-native";
+import {Dimensions} from "react-native";
 import Column from "./Column";
 
 import {contentPadding} from "../themes/variables";
@@ -8,22 +8,21 @@ import {contentPadding} from "../themes/variables";
 const margin = 4
 
 const getWidth = ({ first, last } = {}) => {
-    const onlyOne = first && last;
     const { width } = Dimensions.get('window');
 
-    if (onlyOne) return width;
-    if (first || last) return width - contentPadding - margin ;
+    // if (first && last) return width
+    // if (first || last) return width - contentPadding - margin ;
 
-    return width - (2 * (contentPadding + margin));
+    return width - (2 * (contentPadding + margin)) ;
 };
 
 const StyledScrollView = styled.ScrollView`
-  
+    
 `;
 
 const StyledView = styled.View`
   flex: 1;
-  width: ${getWidth};
+  width: ${getWidth}px;
 `;
 
 const StyledColumn = styled(Column)`
@@ -38,6 +37,7 @@ export default props => (
         width={getWidth()}
         loop={false}
         removeClippedSubviews={false}
+        contentContainerStyle={{ marginHorizontal: contentPadding + margin }}
         horizontal
         pagingEnabled
         {...props}

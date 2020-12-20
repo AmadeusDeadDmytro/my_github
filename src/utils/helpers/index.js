@@ -1,5 +1,5 @@
-import { DARK_THEME, LIGHT_THEME } from '../themes';
-import type { Theme } from './types';
+import { DARK_THEME, LIGHT_THEME } from '../../themes';
+import type { Theme } from '../types';
 
 export const isNight = () => {
   const hours = (new Date()).getHours();

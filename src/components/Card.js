@@ -57,11 +57,11 @@ const MainColumnRowContent = styled(MainColumn)`
 
 const ContentRow = styled(HorizontalView)`
   align-items: center;
-  margin-top: ${contentPadding};
+  margin-top: ${contentPadding}px;
 `
 
 const HighlightContainerBase = styled(HorizontalView)`
-  align-items: center;
+  align-items: center; 
   justify-content: space-between;
   background-color: ${({ theme }) => theme.base01};
   border-radius: 4px;
