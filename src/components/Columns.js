@@ -5,7 +5,7 @@ import Column from "./Column";
 
 import {contentPadding} from "../themes/variables";
 
-const margin = 4
+const margin = 2
 
 const getWidth = ({ first, last } = {}) => {
     const { width } = Dimensions.get('window');
@@ -27,7 +27,7 @@ const StyledView = styled.View`
 
 const StyledColumn = styled(Column)`
   flex: 1;
-  margin: ${margin}px;
+  margin: ${margin * 2}px ${margin}px;
   border-radius: 4px;
 `;
 

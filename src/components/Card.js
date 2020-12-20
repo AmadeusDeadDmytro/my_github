@@ -5,12 +5,12 @@ import Icon from 'react-native-vector-icons/Octicons'
 import Avatar from "./Avatar";
 import { contentPadding } from "../themes/variables";
 
-const avatarWidth = 44
+const avatarWidth = 36
 
 const Card = styled.View`
   padding: ${contentPadding * 1.4}px ${contentPadding}px;
   border-width: 0;
-  border-bottom-width: 2px;
+  border-bottom-width: 0.5px;
   border-color: ${({ theme }) => theme.base01};
 `
 
@@ -35,7 +35,7 @@ const HeaderRow = styled(HorizontalView)`
 
 const Text = styled.Text`
   color: ${({ theme }) => theme.base04};
-  line-height: 20px;
+  line-height: 18px;
   font-size: 14px;
 `
 
@@ -94,17 +94,17 @@ const CardIdContainer = styled(HighlightContainer1)`
 const CardItemId = styled(Text)`
   font-weight: bold;
   font-size: 12px;
-  opacity: 0.8;
+  opacity: 0.9;
 `
 
 const Comment = styled(Text)`
   flex: 1;
-  opacity: 0.8;
+  opacity: 0.9;
 `
 
 const Star = styled(Icon)`
   font-size: 16px;
-  color: ${({ theme }) => theme.base09};
+  color: ${({ theme }) => theme.star};
 `
 
 
@@ -116,7 +116,10 @@ export default ({ ...props }: Props) => (
     <Card {...props}>
         <Header>
             <LeftColumn>
-                <Avatar size={44} source={{ uri: 'https://99px.ru/sstorage/1/2020/09/image_12909202057064394800.jpg' }} />
+                <Avatar
+                    size={avatarWidth}
+                    source={{ uri: 'https://99px.ru/sstorage/1/2020/09/image_12909202057064394800.jpg' }}
+                />
             </LeftColumn>
             <MainColumn>
                 <HeaderRow>
@@ -148,7 +151,10 @@ export default ({ ...props }: Props) => (
 
         <ContentRow>
             <LeftColumn>
-                <Avatar size={22} source={{ uri: 'https://99px.ru/sstorage/1/2020/09/image_12909202057064394800.jpg' }}/>
+                <Avatar
+                    size={avatarWidth / 2}
+                    source={{ uri: 'https://99px.ru/sstorage/1/2020/09/image_12909202057064394800.jpg' }}
+                />
             </LeftColumn>
 
             <MainColumnRowContent>

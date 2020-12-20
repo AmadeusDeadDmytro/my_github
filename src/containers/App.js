@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import styled, { ThemeProvider } from 'styled-components';
 
 import { connect } from 'react-redux';
@@ -8,6 +8,7 @@ import {loadTheme} from "../utils/helpers";
 import Main from '../components/Main'
 
 import {StatusBar, View} from 'react-native'
+import {DEFAULT_THEME} from "../utils/constants/defaults";
 
 const Root = styled.View`
   flex: 1;
@@ -25,7 +26,7 @@ const StyledMain = styled(Main)`
 
 const App = ({ setTheme, theme }: State) => {
     // TODO: Remove this
-    setTheme('dark')
+    setTheme(DEFAULT_THEME)
 
     return (
         <ThemeProvider theme={theme}>

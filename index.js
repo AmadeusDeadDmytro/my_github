@@ -11,10 +11,14 @@ import {NavigationContainer} from "@react-navigation/native";
 import {createBottomTabNavigator} from "@react-navigation/bottom-tabs";
 import {SafeAreaProvider} from "react-native-safe-area-context";
 import Octicons from "react-native-vector-icons/Octicons";
+import {DEFAULT_THEME} from "./src/utils/constants/defaults";
+import {loadTheme} from "./src/utils/helpers";
 
 const composeEnhancers = composeWithDevTools({ realtime: true })
 const store = createStore(reducer, composeEnhancers(autoRehydrate()))
 persistStore(store, {storage: AsyncStorage, blacklist: ['theme']})
+
+const theme = loadTheme(DEFAULT_THEME)
 
 const Tab = createBottomTabNavigator()
 
@@ -27,24 +31,24 @@ const Core = () => (
                         tabBarIcon: ({ focused }) => {
                             switch (route.name){
                                 case 'Feed':
-                                    return <Octicons size={24} name={'mark-github'} color={focused ? '#ffffff' : '#000000'}/>
+                                    return <Octicons size={24} name={'mark-github'} color={focused ? theme.base04 : theme.base03}/>
                                 case 'Discover':
-                                    return <Octicons size={24} name={'flame'} color={focused ? '#ffffff' : '#000000'}/>
+                                    return <Octicons size={24} name={'flame'} color={focused ? theme.base04 : theme.base03}/>
                                 case 'Notifications':
-                                    return <Octicons size={24} name={'globe'} color={focused ? '#ffffff' : '#000000'}/>
+                                    return <Octicons size={24} name={'globe'} color={focused ? theme.base04 : theme.base03}/>
                                 case 'More':
-                                    return <Octicons size={24} name={'gear'} color={focused ? '#ffffff' : '#000000'}/>
+                                    return <Octicons size={24} name={'gear'} color={focused ? theme.base04 : theme.base03}/>
                             }
                         },
 
                     })}
                     tabBarOptions={{
-                        activeTintColor: '#ffffff',
-                        inactiveTintColor: '#3f3f3f',
-                        inactiveBackgroundColor: '#ffffff',
-                        activeBackgroundColor: '#3f3f3f',
+                        activeTintColor: theme.base04,
+                        inactiveTintColor: theme.base03,
+                        inactiveBackgroundColor: theme.base04,
+                        activeBackgroundColor: theme.base03,
                         style: {
-                            backgroundColor: '#111111'
+                            backgroundColor: theme.base00
                         }
                     }}
                 >
