@@ -1,3 +1,3 @@
 import type { Theme } from '../types';
 
-export const DEFAULT_THEME: Theme = 'dark-blue';
+export const DEFAULT_THEME: Theme = 'dark';

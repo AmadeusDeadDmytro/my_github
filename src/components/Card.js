@@ -1,6 +1,7 @@
 import React from "react";
 import styled from 'styled-components'
 import Icon from 'react-native-vector-icons/Octicons'
+import { View } from 'react-native';
 
 import Avatar from "./Avatar";
 import { contentPadding } from "../themes/variables";
@@ -39,11 +40,17 @@ const Text = styled.Text`
   font-size: 14px;
 `
 
+
 const Username = styled(Text)`
   font-weight: bold;
 `
+
 const MutedText = styled(Text)`
   opacity: 0.6;
+`
+
+const Timestamp = styled(MutedText)`
+  font-size: 12px;
 `
 
 const MainColumn = styled.View`
@@ -102,11 +109,18 @@ const Comment = styled(Text)`
   opacity: 0.9;
 `
 
-const Star = styled(Icon)`
+const StarIcon = styled(Icon)`
   font-size: 16px;
   color: ${({ theme }) => theme.star};
 `
 
+const CardIcon = styled(Icon)`
+  align-self: center;
+  margin-right: ${contentPadding - 2}px;
+  font-size: 20px;
+  color: ${({ theme }) => theme.base04};
+  opacity: 0.4;
+`
 
 type Props = {
     title: string
@@ -123,14 +137,17 @@ export default ({ ...props }: Props) => (
             </LeftColumn>
             <MainColumn>
                 <HeaderRow>
-                    <Username>Amadeus</Username>
-                    <MutedText>34m</MutedText>
-                </HeaderRow>
-                <HeaderRow>
+                    <View>
+                        <HorizontalView>
+                            <Username>Amadeus</Username>
+                            <Timestamp> • 34m</Timestamp>
+                        </HorizontalView>
+                    </View>
                     <MutedText>
-                        <Icon name="comment-discussion" />&nbsp;
                         commented on pull request
                     </MutedText>
+
+                    <CardIcon name="comment-discussion"/>
                 </HeaderRow>
             </MainColumn>
         </Header>
@@ -144,7 +161,7 @@ export default ({ ...props }: Props) => (
                         <RepositoryName>react</RepositoryName>
                     </HorizontalView>
 
-                    <Star name="star" />
+                    <StarIcon name="star" />
                 </RepositoryContainer>
             </MainColumn>
         </ContentRow>
@@ -162,7 +179,7 @@ export default ({ ...props }: Props) => (
                     <CardItemId>#5030</CardItemId>
                 </CardIdContainer>
 
-                <Comment numberOfLines={1}>&nbsp;Hi there, you might know, I guess</Comment>
+                <Comment numberOfLines={1}>&nbsp;Hi there, it would be nice to have this feature</Comment>
             </MainColumnRowContent>
         </ContentRow>
     </Card>
