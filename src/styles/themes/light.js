@@ -5,7 +5,7 @@ export const base16 = {
   theme: 'light',
   isDark: false,
   base00: '#f7f7f5', // фон страницы
-  base01: '#ccccca', // фон карточки -1
+  base01: '#ededed', // фон карточки -1
   base02: '#ffffff', // фон карточки 0
   base03: '#f7f7f5', // фон карточки +1
   base04: '#222222', // цвет
